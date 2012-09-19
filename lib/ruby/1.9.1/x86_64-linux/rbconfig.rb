@@ -32,7 +32,7 @@ module RbConfig
   CONFIG["rubyhdrdir"] = "$(includedir)/$(RUBY_BASE_NAME)-$(ruby_version)"
   CONFIG["UNIVERSAL_INTS"] = ""
   CONFIG["UNIVERSAL_ARCHNAMES"] = ""
-  CONFIG["configure_args"] = " '--prefix=/opt/ruby-chef/' '--disable-install-doc'"
+  CONFIG["configure_args"] = " '--prefix=/opt/ruby-chef/' '--disable-install-doc' '--with-opt-dir=/opt/ruby-chef/usr'"
   CONFIG["vendordir"] = "$(rubylibprefix)/vendor_ruby"
   CONFIG["sitedir"] = "$(rubylibprefix)/site_ruby"
   CONFIG["ruby_version"] = "1.9.1"
