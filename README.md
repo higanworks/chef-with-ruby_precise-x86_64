@@ -22,6 +22,9 @@ Chef: 10.14.2
 Ohai: 6.14.0
 </code></pre>
 
+#### update chef 
+`/opt/ruby-chef/bin/gem update chef --no-ri --no-rdoc`
+
 ## ruby install log
 
 ### install dependencies
