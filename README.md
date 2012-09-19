@@ -52,4 +52,5 @@ make install
 ### chef
 <pre><code>/opt/ruby-chef/bin/gem install chef --no-ri --no-rdoc</code></pre>
 
-
+### cucumber
+<pre><code>/opt/ruby-chef/bin/gem install cucumber --no-ri --no-rdoc</code></pre>
