@@ -25,6 +25,14 @@ Ohai: 6.14.0
 #### update chef 
 `/opt/ruby-chef/bin/gem update chef --no-ri --no-rdoc`
 
+## Notice: with rvm
+`rvm use system` first, or keep default ruby to `system`.  
+ex) `rvm use system --default`
+
+or use rvm-shell
+`/usr/local/rvm/bin/rvm-shell system -c '/opt/ruby-chef/bin/chef-solo'`  
+or create own gemset for chef and use chef under rvm.
+
 ## ruby install log
 
 ### install dependencies
