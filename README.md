@@ -6,7 +6,7 @@ Just type 2 Commands, Chef ready.
 ### Tested on
 * ubuntu (12.04)
 
-Please [report][issues] any additional versions so they can be added.
+Please [report](/higanworks/chef-with-ruby_precise-x86_64/issues) any additional versions so they can be added.
 
 
 ## Usage
