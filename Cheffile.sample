@@ -3,13 +3,21 @@
 
 site 'http://community.opscode.com/api/v1'
 
-# cookbook 'chef-client'
+cookbook 'apt'
 
-# cookbook 'apache2', '>= 1.0.0'
 
-# cookbook 'rvm',
-#   :git => 'https://github.com/fnichol/chef-rvm'
+# external
+cookbook 'rvm',
+  :git => 'https://github.com/fnichol/chef-rvm'
 
-# cookbook 'postgresql',
-#   :git => 'https://github.com/findsyou/cookbooks',
-#   :ref => 'postgresql-improvements'
+
+# my cookbooks
+cookbook 'nginx_ppa',
+  :git => 'https://github.com/higanworks-cookbooks/nginx_ppa.git'
+
+cookbook 'monit_binaries',
+  :git => 'https://github.com/higanworks-cookbooks/monit_binaries.git'
+
+cookbook 'redis_src',
+  :git => 'https://github.com/higanworks-cookbooks/redis_src.git'
+
