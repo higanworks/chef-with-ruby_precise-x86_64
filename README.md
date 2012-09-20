@@ -63,6 +63,9 @@ make install
 ### cucumber
 <pre><code>/opt/ruby-chef/bin/gem install cucumber --no-ri --no-rdoc</code></pre>
 
+### librarian
+<pre><code>/opt/ruby-chef/bin/gem install librarian --no-ri --no-rdoc</code></pre>
+
 Setup your server with librarian-chef.
 -----
 Librarian manages cookbooks like bundler.  [https://github.com/applicationsonline/librarian](https://github.com/applicationsonline/librarian)
