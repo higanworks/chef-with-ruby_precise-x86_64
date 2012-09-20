@@ -1,0 +1,5 @@
+echo $PATH | grep /opt/ruby-chef/bin 1> /dev/null 2> /dev/null
+if [ ! $? = 0 ]; then
+  PATH=$PATH:/opt/ruby-chef/bin
+fi
+
