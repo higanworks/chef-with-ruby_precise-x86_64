@@ -62,3 +62,11 @@ make install
 
 ### cucumber
 <pre><code>/opt/ruby-chef/bin/gem install cucumber --no-ri --no-rdoc</code></pre>
+
+
+License
+-------
+
+Copyright (c) 2011-2012 HiganWorks LLC.
+
+Released under the terms of the MIT License.
