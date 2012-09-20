@@ -3,6 +3,11 @@
 ## Description
 Just type 2 Commands, Chef ready.
 
+### Tested on
+* ubuntu (12.04)
+
+Please [report][issues] any additional versions so they can be added.
+
 
 ## Usage
 Clone Ruby and Chef from github.
