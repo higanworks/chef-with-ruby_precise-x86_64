@@ -87,6 +87,7 @@ List cookbooks like bundler Gemfile.
 
 ----
 `Cheffile.sample`
+
 <pre><code>#!/usr/bin/env ruby
 #^syntax detection
 
@@ -131,6 +132,7 @@ rvm (0.9.1)
 `# ./bin/chef-solo -c solo.rb -o nginx_ppa::default`
 
 **Execution example**
+
 <pre><code># ./bin/chef-solo -c solo.rb -o nginx_ppa::default
 -- snip --
 [2012-09-19T20:29:28-07:00] INFO: Processing package[nginx] action install (nginx_ppa::default line 34)
@@ -163,6 +165,7 @@ nginx version: nginx/1.2.3</code></pre>
 </code></pre>
 
 **Execution example**
+
 <pre><code># ./bin/chef-solo -c solo.rb -j ./sample.json
 [2012-09-19T20:28:35-07:00] INFO: *** Chef 10.14.2 ***
 [2012-09-19T20:28:35-07:00] INFO: Setting the run_list to ["recipe[apt]", "recipe[nginx_ppa]", "recipe[monit_binaries]", "recipe[redis_src]", "recipe[rvm::system]"] from JSON
@@ -179,6 +182,18 @@ Copyright (C) 2001-2012 Tildeslash Ltd. All Rights Reserved.
 
 # nginx -v
 nginx version: nginx/1.2.3</code></pre>
+
+
+Appendix:Bootstrap your own Chef-Server
+----
+
+<pre><code>cd /opt/ruby-chef
+cp Cheffile.bootstrap-server Cheffile
+./bin/librarian-chef install
+./bin/chef-solo -c solo.rb -j bootstrap-server.json</code></pre>
+
+Wait few minutes, Chef-WebUI is launched at port 4040.  
+Default id/password is **"admin/p@ssword"**.
 
 
 License
