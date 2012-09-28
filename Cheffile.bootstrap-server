@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+site 'http://community.opscode.com/api/v1'
+cookbook 'apt'
+
+# my cookbooks
+cookbook 'bootstrap-chefserver',
+  :git => 'https://github.com/higanworks-cookbooks/bootstrap-chefserver.git'
+
