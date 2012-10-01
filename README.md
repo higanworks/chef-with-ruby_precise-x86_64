@@ -195,6 +195,78 @@ cp Cheffile.bootstrap-server Cheffile
 Wait few minutes, Chef-WebUI is launched at port 4040.  
 Default id/password is **"admin/p@ssword"**.
 
+### Oprion: Chef-Server API and Web-UI use HTTPS over nginx proxy.
+
+put sample comfig to `/etc/nginx/site-available` and create link to it.  
+Reference: `Opscode chef-server cookbook.`
+
+**Sample Config: /etc/nginx/sites-available/chef_server_proxy.conf **
+
+<pre><code>upstream chef_server {
+  server 127.0.0.1:4000 fail_timeout=0;
+}
+
+upstream chef_server_webui {
+  server 127.0.0.1:4040 fail_timeout=0; 
+}
+
+server {                                                                                                                                    [33/1963]
+  listen 443 ssl;
+  ssl_certificate /etc/chef/certificates/cert.pem;
+  ssl_certificate_key /etc/chef/certificates/key.pem;
+  server_name localhost;
+  access_log /var/log/nginx/chef-server.access.log;
+  error_log /var/log/nginx/chef-server.error.log warn;
+
+  root /usr/share/chef-server-webui/public;
+  
+  location @chef_server {
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_set_header Host $http_host;
+
+    proxy_pass http://chef_server;
+  }
+  
+  location / {
+    try_files $uri @chef_server;
+  }
+}
+
+server {
+  listen 444 ssl;
+  ssl_certificate /etc/chef/certificates/cert.pem;
+  ssl_certificate_key /etc/chef/certificates/key.pem;
+  server_name localhost;
+  access_log /var/log/nginx/chef-server.access.log;
+  error_log /var/log/nginx/chef-server.error.log warn;
+
+  root /usr/share/chef-server-webui/public;
+  
+  location @chef_server_webui {
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_set_header Host $http_host;
+
+    proxy_pass http://chef_server_webui;
+  }
+
+  location ~ ^.+\.css$ {
+    expires 120h;
+
+    try_files $uri @chef_server_webui;
+  }
+
+  location ~ ^.+\.js$ {
+    expires 24h;
+
+    try_files $uri @chef_server_webui;
+  }
+
+  location / {
+    try_files $uri @chef_server_webui;
+  }
+}
+</code></pre>
+
 
 License
 -------
