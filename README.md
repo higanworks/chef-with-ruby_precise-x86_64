@@ -8,6 +8,14 @@ Just type 2 Commands, Chef ready.
 
 Please [report](/higanworks/chef-with-ruby_precise-x86_64/issues) any additional versions so they can be added.
 
+## Include
+
+* Ruby 1.9.3-p286
+* Chef 10.16.0 (update easily)
+* librarian
+* cucumber
+* foodcritic
+
 
 ## Usage
 Clone Ruby and Chef from github.
@@ -18,10 +26,10 @@ $ git clone https://github.com/higanworks/chef-with-ruby_`lsb_release -cs`-`unam
 
 
 <pre><code># /opt/ruby-chef/bin/chef-solo -v
-Chef: 10.14.2
+Chef: 10.16.0
 
 # /opt/ruby-chef/bin/shef -v
-Chef: 10.14.2
+Chef: 10.16.0
 
 # /opt/ruby-chef/bin/ohai -v
 Ohai: 6.14.0
@@ -48,14 +56,14 @@ reference: rvm reqirememts
 
 ### make libyaml and ruby
 
-Perform `rvm install 1.9.3` before make for download sources.
+Perform `rvm install 1.9.3 --disable-binary` before make for download sources.
 <pre><code>cd /usr/local/rvm/src/yaml-0.1.4
 make clean
 ./configure --prefix=/opt/ruby-chef/usr --no-create --no-recursion 
 make -j 4
 make install
 
-cd /usr/local/rvm/src/ruby-1.9.3-p194
+cd /usr/local/rvm/src/ruby-1.9.3-p286
 make clean
 ./configure "--prefix=/opt/ruby-chef/" '--disable-install-doc' '--with-opt-dir=/opt/ruby-chef/usr'
 make -j 4
@@ -70,6 +78,10 @@ make install
 
 ### librarian
 <pre><code>/opt/ruby-chef/bin/gem install librarian --no-ri --no-rdoc</code></pre>
+
+### foodcritic
+<pre><code>/opt/ruby-chef/bin/gem install foodcritic --no-ri --no-rdoc</code></pre>
+
 
 Setup your server with librarian-chef.
 -----
