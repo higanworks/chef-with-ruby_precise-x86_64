@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+#
+# = gist(1)
+#
+# == USAGE
+#  gist < file.txt
+#  echo secret | gist -p  # or --private
+#  echo "puts :hi" | gist -t rb
+#  gist script.py
+#
+# == INSTALL
+# RubyGem:
+#     gem install gist
+# Old school:
+#     curl -s http://github.com/defunkt/gist/raw/master/gist > gist &&
+#     chmod 755 gist &&
+#     mv gist /usr/local/bin/gist
+
+require 'gist'
+Gist.execute(*ARGV)

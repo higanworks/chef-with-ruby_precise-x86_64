@@ -209,7 +209,7 @@
 #
 class OptionParser
   # :stopdoc:
-  RCSID = %w$Id: optparse.rb 34316 2012-01-16 07:42:01Z nobu $[1..-1].each {|s| s.freeze}.freeze
+  RCSID = %w$Id: optparse.rb 35469 2012-04-24 20:57:07Z nobu $[1..-1].each {|s| s.freeze}.freeze
   Version = (RCSID[1].split('.').collect {|s| s.to_i}.extend(Comparable).freeze if RCSID[1])
   LastModified = (Time.gm(*RCSID[2, 2].join('-').scan(/\d+/).collect {|s| s.to_i}) if RCSID[2])
   Release = RCSID[2]
@@ -1065,13 +1065,13 @@ XXX
   #
   # Returns option summary string.
   #
-  def help; summarize(banner.to_s.sub(/\n?\z/, "\n")) end
+  def help; summarize("#{banner}".sub(/\n?\z/, "\n")) end
   alias to_s help
 
   #
   # Returns option summary list.
   #
-  def to_a; summarize(banner.to_a.dup) end
+  def to_a; summarize("#{banner}".split(/^/)) end
 
   #
   # Checks if an argument is given twice, in which case an ArgumentError is

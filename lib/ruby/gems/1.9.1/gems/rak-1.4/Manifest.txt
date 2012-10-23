@@ -1,0 +1,8 @@
+History.txt
+Manifest.txt
+README.txt
+Rakefile
+bin/rak
+lib/rak.rb
+spec/rak_spec.rb
+spec/help_spec.rb

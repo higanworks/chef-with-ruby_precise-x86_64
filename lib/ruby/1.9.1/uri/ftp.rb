@@ -2,7 +2,7 @@
 #
 # Author:: Akira Yamada <akira@ruby-lang.org>
 # License:: You can redistribute it and/or modify it under the same term as Ruby.
-# Revision:: $Id: ftp.rb 31573 2011-05-15 11:55:52Z nobu $
+# Revision:: $Id: ftp.rb 36857 2012-08-30 16:21:44Z naruse $
 #
 # See URI for general documentation
 #
@@ -135,6 +135,7 @@ module URI
     # +opaque+, +query+ and +fragment+, in that order.
     #
     def initialize(*arg)
+      raise InvalidURIError unless arg[5]
       arg[5] = arg[5].sub(/^\//,'').sub(/^%2F/,'/')
       super(*arg)
       @typecode = nil
