@@ -207,6 +207,13 @@ cp Cheffile.bootstrap-server Cheffile
 Wait few minutes, Chef-WebUI is launched at port 4040.  
 Default id/password is **"admin/p@ssword"**.
 
+### Oprion: Couchdb maintenace recipe for Chef-Server.
+
+Add `recipe[bootstrap-chefserver::maintenance]` to your chefserver's run_list.
+
+You can download **cookbook[bootstrap-chefserver]** from [https://github.com/higanworks-cookbooks/bootstrap-chefserver](https://github.com/higanworks-cookbooks/bootstrap-chefserver)
+
+
 ### Oprion: Chef-Server API and Web-UI use HTTPS over nginx proxy.
 
 put sample comfig to `/etc/nginx/site-available` and create link to it.  
